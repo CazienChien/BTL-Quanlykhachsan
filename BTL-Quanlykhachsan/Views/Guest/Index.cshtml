@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Guest>
+<a asp-action="Add" class="btn btn-primary">Thêm</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Họ tên</th>
+            <th>Số phòng</th>
+            <th>Ngày nhận phòng</th>
+            <th>Ngày trả phòng</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.Id</td>
+                <td>@s.CheckinDate</td>
+                <td>@s.CheckoutDate</td>
+                <td>@s.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
