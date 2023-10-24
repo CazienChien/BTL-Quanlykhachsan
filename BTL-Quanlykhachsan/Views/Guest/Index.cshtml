@@ -1,5 +1,9 @@
-﻿@model IEnumerable<Guest>
-<a asp-action="Add" class="btn btn-primary">Thêm</a>
+﻿@{
+    ViewData["Title"] = "Danh sách khách hàng";
+    Layout = "~/Views/Shared/MyLayout.cshtml";
+}
+@model IEnumerable<Guest>
+<a asp-action="Create" class="btn btn-primary">Thêm</a>
 <table class="table table-striped">
     <thead>
         <tr>

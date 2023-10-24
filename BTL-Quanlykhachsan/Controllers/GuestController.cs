@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BTL_Quanlykhachsan.Models;
+using System.Reflection;
+
 namespace BTL_Quanlykhachsan.Controllers
 {
     public class GuestController : Controller
@@ -10,15 +12,27 @@ namespace BTL_Quanlykhachsan.Controllers
         {
             listGuests = new List<Guest>()
             {
-                new Guest() {Id = 101, Name = "Le Hoang Long", CheckinDate = "2023/10/1", CheckoutDate = "2023/10/5", Email = "Long@gmail.com"},
-                new Guest() {Id = 102, Name = "Le Hoang Phuc", CheckinDate = "2023/10/2", CheckoutDate = "2023/10/6", Email = "Phuc@gmail.com"},
-                new Guest() {Id = 103, Name = "Nguyen Quoc Duy", CheckinDate = "2023/10/3", CheckoutDate = "2023/10/7", Email = "Duy@gmail.com"},
-                new Guest() {Id = 104, Name = "Tran Thi Thu Thuy", CheckinDate = "2023/10/4", CheckoutDate = "2023/10/8", Email = "Thuy@gmail.com"}
+                new Guest() {Id = 101, Name = "Le Hoang Long", CheckinDate = "01/10/2023", CheckoutDate = "05/10/2023", Email = "Long@gmail.com"},
+                new Guest() {Id = 102, Name = "Le Hoang Phuc", CheckinDate = "02/10/2023", CheckoutDate = "06/10/2023", Email = "Phuc@gmail.com"},
+                new Guest() {Id = 103, Name = "Nguyen Quoc Duy", CheckinDate = "03/10/2023", CheckoutDate = "07/10/2023", Email = "Duy@gmail.com"},
+                new Guest() {Id = 104, Name = "Tran Thi Thu Thuy", CheckinDate = "04/10/2023", CheckoutDate = "08/10/2023", Email = "Thuy@gmail.com"}
             };
         }
         public IActionResult Index()
         {
             return View(listGuests);
+        }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Create(Guest s)
+        {
+            s.Id = listGuests.Last<Guest>().Id + 1;
+            listGuests.Add(s);
+            return View("Index", listGuests);
         }
     }
 }

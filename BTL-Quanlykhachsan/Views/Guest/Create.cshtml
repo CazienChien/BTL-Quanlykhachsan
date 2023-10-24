@@ -1,0 +1,36 @@
+﻿@model Guest
+<div>
+    <form asp-controller="Student" asp-action="Create" method="post" class="mt-3">
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Name" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Name" class="form-control" placeholder="Họ tên">
+            </div>
+        </div>
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="Email" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <input asp-for="Email" class="form-control" placeholder="Email">
+            </div>
+        </div>
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="CheckinDate" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea asp-for="CheckinDate" class="form-control"
+                          placeholder="Ngày nhận phòng"></textarea>
+            </div>
+        </div>
+        <div style="margin-top:7px" class="form-group row">
+            <label asp-for="CheckoutDate" class="col-sm-2 col-form-label"></label>
+            <div class="col-sm-10">
+                <textarea asp-for="CheckoutDate" class="form-control"
+                          placeholder="Ngày trả phòng"></textarea>
+            </div>
+        </div>
+        <div style="margin-top:10px" class="form-group row">
+            <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Tạo</button>
+            </div>
+        </div>
+    </form>
+</div>
